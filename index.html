@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body, html{
+        background: #102;
+        margin: 0;
+        color: #8fc;
+        font-family: verdana;
+        font-size: 20px;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+      .outputContainer{
+        line-height: 1.5em;
+        border-radius: 10px;
+        width: 400px;
+        height: 200px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #fff2;
+        padding: 10px;
+        text-align: center;
+      }
+      #output{
+        background: #000;
+        border: 1px solid #4f82;
+        min-height: 24px;
+        color: #fffd;
+        font-size: 16px;
+        text-align: center;
+      }
+      .button{
+        border: none;
+        border-radius: 5px;
+        padding: 3px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background: #40f;
+        color: #fff;
+        font-family: verdana;
+        font-size: 16px;
+      }
+      textarea:focus{
+        outline: none;
+      }
+      textarea{
+        min-width: calc(100% - 10px);
+        text-align: center;
+        border: 1px solid #4f82;
+        background: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outputContainer">
+      <span style="color: #fff;">
+        HASH GENERATOR
+      </span>
+      <br>
+      input<br>
+      <textarea
+        autofocus
+        type="text"
+        id="textInput"
+        oninput="showOutput(this.value)"
+      ></textarea><br><br>
+      output<br>
+      <div id="output"></div>
+    </div>
+    <script type="module">
+      import * as Hash from "./hash.js"
+      window.showOutput = str => {
+        output.innerHTML = Hash.GenHash(str)
+      }
+    </script>
+  </body>
+</html>
